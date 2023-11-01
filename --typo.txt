@@ -1,0 +1,4 @@
+backgroundColor:
+#FCF5ED
+primaryColor:
+#5553FF
