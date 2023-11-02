@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
-import DashboardLayout from "../layout/DashboardLayout";
-import CodingProblems from "../components/CodingProblems/CodingProblems";
+import AdminLayout from "../layout/AdminLayout";
+import Home from "../pages/Admin/Home";
+import Categories from "../pages/Admin/Categories";
 
 const router = createBrowserRouter([
     {
@@ -10,29 +11,33 @@ const router = createBrowserRouter([
         errorElement: <h1>Error Element</h1>,
         children: [
             {
-                path: '/',
+                index: true,
                 element: <h3>Home</h3>
             },
             {
                 path: '/coding-problems',
-                element: <CodingProblems></CodingProblems>
+                element: <h1>Coding problems</h1>
             }
         ],
     },
     {
         path: '/admin',
-        element: <DashboardLayout></DashboardLayout>,
+        element: <AdminLayout></AdminLayout>,
         children: [
             {
-                path: '/admin',
-                element: <h1>Dashboard Home</h1>
+                index: true,
+                element: <Home></Home>
             },
             {
-                path: '/admin/blind75',
+                path: 'problems',
                 element: <h2>Blind 75 Questions</h2>
+            },
+            {
+                path: 'categories',
+                element: <Categories></Categories>
             }
         ]
     }
 ])
 
-export default router;
+export default router; 
